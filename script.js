@@ -23,6 +23,7 @@ function renderAll() {
   renderButtons()
   renderCakeLayersBoard()
   renderPrice()
+  renderCandle()
 }
 
 //Setup event listener for the Chocolate button
@@ -146,4 +147,19 @@ function renderPrice() {
   if (state.Vanilla) total = total + cakeLayers.Vanilla
   if (state.Redvelvet) total = total + cakeLayers.Redvelvet
   document.getElementById('total').innerHTML = 'Total........' + total
+}
+
+function renderCandle() {
+  let candles = document.getElementById('candle')
+  if (
+    state.Chocolate &&
+    state.Strawberry &&
+    state.Butterscotch &&
+    state.Vanilla &&
+    state.Redvelvet
+  ) {
+    candles.style.visibility = 'inherit'
+  } else {
+    candles.style.visibility = 'hidden'
+  }
 }
